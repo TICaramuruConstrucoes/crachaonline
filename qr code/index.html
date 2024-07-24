@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações do Usuário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #047a04e0;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background-color: #e1dbdb;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        img {
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+        .info {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="logo" src="https://caramuruconstrucoes.com.br/wp-content/uploads/2022/09/Site-23-1.png" alt="Logo Padrão">
+        <h1>Informações do Usuário</h1>
+        <div class="info"><strong>Nome:</strong> <span id="nome"></span></div>
+        <div class="info"><strong>Idade:</strong> <span id="idade"></span></div>
+        <div class="info"><strong>CPF:</strong> <span id="cpf"></span></div>
+    </div>
+
+    <script>
+        // Função para obter os parâmetros da URL
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                nome: params.get('nome') || 'Não informado',
+                idade: params.get('idade') || 'Não informado',
+                cpf: params.get('cpf') || 'Não informado'
+            };
+        }
+
+        // Função para exibir os parâmetros na página
+        function exibirInformacoes() {
+            const { nome, idade, cpf } = getUrlParams();
+            document.getElementById('nome').textContent = nome;
+            document.getElementById('idade').textContent = idade;
+            document.getElementById('cpf').textContent = cpf;
+        }
+
+        // Chama a função para exibir as informações
+        exibirInformacoes();
+    </script>
+</body>
+</html>
+
